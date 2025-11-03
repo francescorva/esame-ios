@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  MoneyTrack
-//
-//  Created by admin on 03/11/25.
-//
-
 import SwiftUI
 
 struct ContentView: View {

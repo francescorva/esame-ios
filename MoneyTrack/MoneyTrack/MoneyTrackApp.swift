@@ -1,17 +1,20 @@
-//
-//  MoneyTrackApp.swift
-//  MoneyTrack
-//
-//  Created by admin on 03/11/25.
-//
-
 import SwiftUI
 
 @main
 struct MoneyTrackApp: App {
+    @StateObject private var dataManager = DataManager()
+    @StateObject private var userManager = UserManager()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if let _ = userManager.utenteLoggato {
+                MainTabView()
+                    .environmentObject(dataManager)
+                    .environmentObject(userManager)
+            } else {
+                LoginView()
+                    .environmentObject(userManager)
+            }
         }
     }
 }
